@@ -1,30 +1,23 @@
-%\documentclass[12pt]{report}
-%\documentclass[12pt]{scrartcl}
 \documentclass[12pt]{article}
-
 \usepackage[portuguese]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{indentfirst}
 \usepackage{mathtools}
 \usepackage{amsmath, amsthm, amssymb, amsfonts}
 \usepackage[mathletters]{ucs}
-\usepackage{algorithm}\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 \usepackage{tikz}
 \usetikzlibrary{matrix}
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
 
-
-
-
 \usepackage[margin=3cm]{geometry}
 \usepackage{graphicx}
 
-
 \title{ASA - Relatório 1}
 %\subtitle{Análise e Sintese de Algoritmos}
-
 \author{Marisa Roque - 76653}
 \date{\today}
 
@@ -84,12 +77,21 @@ Uma segunda estrutura essencial no programa, \emph{scc\_result}, com o objectivo
 
 Na modelação deste problema usou-se um algoritmo recursivo de tempo linear, ou seja, de tempo $O(V+E)$, para encontrar componentes fortemente ligados de um grafo dirigido $G = (V,E)$, chamado algoritmo de Tarjan. Como se pode ver pelo pseudo-código em baixo, este é um algoritmo que faz uso do algoritmo de busca em profundidade de grafos (DFS). Resumindo, a inicialização dá-se em tempo O($V$), as chamadas à função DFSscc igualmente em O($V$), e, por fim as listas de adjacências são analisadas apenas uma vez, logo, O(E). 
 
-\begin{algorithm}\caption{Algoritmo de Tarjan}\begin{algorithmic}[1]\Procedure {SCC\_Tarjan}{$G$}
+\begin{algorithm}
+\caption{Algoritmo de Tarjan}
+\begin{algorithmic}[1]
+\Procedure {SCC\_Tarjan}{$G$}
     \State visited $=0$
     \State L $=0$
-    \ForAll {vertex $u \in V[G)]$}      \State $d[v] = \infty$   \EndFor   \ForAll {vertex $v \in V[G]$}        \If{$d[v] = \infty$}
+    \ForAll {vertex $u \in V[G)]$}
+      \State $d[v] = \infty$
+   \EndFor
+   \ForAll {vertex $v \in V[G]$}
+        \If{$d[v] = \infty$}
            \State DFSscc[$v$]
-        \EndIf   \EndFor\EndProcedure
+        \EndIf
+   \EndFor
+\EndProcedure
 \Statex        
         
 \Procedure {DFSscc}{$G$,$v$}
@@ -114,22 +116,16 @@ Na modelação deste problema usou-se um algoritmo recursivo de tempo linear, ou
     \EndIf
     
 \EndProcedure
-\end{algorithmic}\end{algorithm}
-
-
+\end{algorithmic}
+\end{algorithm}
 
 Podia-se também ter optado pelo algoritmo de Kosaraju, no entanto, este tinha à partida a desvantagem aparente de ter que realizar duas buscas em profundidade (DFS), o que o tornou logo menos atractivo em termos de eficiência, em comparação com o de Tarjan.
 
-
 \section*{Resultados da avaliação experimental}
 
-%Analisando o código, consegue-se determinar o tempo de execução de cada ciclo e, consequentemente, do programa (sendo número de pessoas = N e número de partilhas = P):
-%
-%\begin{itemize}
-%%\item primeiro for:%\item segundo for: %\item primeiro while:%\item terceiro for:%
+Após completa a codificação, a solução foi submetida a diferentes testes. Numa primeira fase, foram feitos os testes disponibilizados pelos docentes, bem como os dois exemplos do enunciado. Nesta fase, a solução parecia ter um comportamento aceitável, pois as saídas estavam todas correctos. No entanto, estes testes não era suficientemente exaustivos e não testavam todas as hipóteses de entradas. Ao submeter o ficheiro no \emph{Mooshak}, o algoritmo foi submetido a testes mais rigorosos. Das primeiras vezes que foi submetido ocorria um \emph{Time Limit Exceeded} em três testes (10, 12, 15). Posteriormente, melhorou-se o nosso algoritmo mudando os acessos à lista de adjacências e optou-se por marcar os vértices para indicar a qual componente fortemente ligado eles pertencem, verificação essa que demora tempo constante.
 
-%\end{itemize}
-Após completa a codificação, a solução foi submetida a diferentes testes. Numa primeira fase, foram feitos os testes disponibilizados pelos docentes, bem como os dois exemplos do enunciado. Nesta fase, a solução parecia ter um comportamento aceitável, pois as saídas estavam todas correctos. No entanto, estes testes não era suficientemente exaustivos e não testavam todas as hipóteses de entradas. Ao submeter o ficheiro no \emph{Mooshak}, o algoritmo foi submetido a testes mais rigorosos. Das primeiras vezes que foi submetido ocorria um \emph{Time Limit Exceeded} em três testes (10, 12, 15). Posteriormente, melhorou-se o nosso algoritmo mudando os acessos à lista de adjacências e optou-se por marcar os vértices para indicar a qual componente fortemente ligado eles pertencem, verificação essa que demora tempo constante.No entanto, depois dos devidos ajustes, submeteu-se uma solução optimizada que passou com sucesso aos 16 testes do sistema.
+No entanto, depois dos devidos ajustes, submeteu-se uma solução optimizada que passou com sucesso aos 16 testes do sistema.
 
 \begin{thebibliography}{9}
 
