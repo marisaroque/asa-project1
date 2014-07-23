@@ -1,15 +1,15 @@
 asa-project1
 ===========
 
-Project assignment for the Analysis and Synthesis of Algorithms course. 
+First project assignment for the Analysis and Synthesis of Algorithms course. 
 
 LEIC-T # 2013/2014
 www.tecnico.ulisboa.pt/ 
 
  The Problem
 -
-Nowadays there are many ways of sharing information (texts, images, videos, etc..) between people. Some people end up forming groups so that when any member of the group gets something, everyone in the group has access to this information through a sequence of shares.
-Suppose that each person has a range of other people with whom he shares the receiving. Your task is classify people into groups for sharing, so that when a group of people gets something, all other will also receive.
+Nowadays there are many ways of sharing information (texts, images, videos, etc.) between people. Some people end up forming groups so that when any member of the group gets something, everyone in the group has access to this information through a sequence of shares.
+Suppose that each person has a range of other people with whom he shares the receiving. Your task is to classify people into groups for sharing, so that when a group of people gets something, all other will also receive.
 
  Input
 -
@@ -17,9 +17,9 @@ The input file must contain information about the shares:
 
   - A line with the number of people N, and the number of shares P.
   
-  - A list of P lines, where each line contains two integers u and v (separated by a blank space) which represent a share. Each line indicates that the person sharing what u get with v.
+  - A list of P lines, where each line contains two integers u and v (separated by a blank space) which represent a share. Each line indicates that the person u shares what he/she receives with v.
   
-It is assumed that the identification of people and an integer between 1 and N.
+It is assumed that the identification of people is an integer between 1 and N.
 
  Output
 -
@@ -72,4 +72,4 @@ Examples
 
 ===
 
-README by [manuelalves](https://github.com/manuelalves) - https://github.com/manuelalves/asa-problem1/
+README adapted from [manuelalves](https://github.com/manuelalves) - https://github.com/manuelalves/asa-problem1/
